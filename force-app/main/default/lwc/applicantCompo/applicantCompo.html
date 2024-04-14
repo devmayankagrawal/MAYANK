@@ -5,19 +5,19 @@
         <lightning-input data-formfield="applicantDob" type="date" label="Enter Applicant DOB" name="appDob"></lightning-input><br/>
         <lightning-input data-formfield="applicantEmailId" type="text" label="Enter Applicant Email-ID" name="appEmailId"></lightning-input><br/>
 
-        <lightning-combobox
+        <lightning-input
         name="gender"
         label="Enter Gender"
         
         placeholder="Select Gender"
-        options={options}
-        onchange={handleGender} ></lightning-combobox>
+        
+        onchange={handleGender} ></lightning-input>
       
 
 
         <lightning-button variant="brand" label="Save" title="Save" onclick={createNewApplicantHandler} ></lightning-button> 
                 
-
+        <p>Hello</p>
 
     </lightning-card>
 </template>
