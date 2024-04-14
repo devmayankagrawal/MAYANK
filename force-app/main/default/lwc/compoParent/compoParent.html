@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Parent Component">
+
+        <lightning-input type="text" data-formfield="applicantId" placeholder="Enter Applicant Id" onblur={applicantRecordHandler}></lightning-input>
+
+        
+        <!--Calling Child Compo-->
+        <template if:true={showPopupModalFlag}>
+            <c-compo-child onmychildevent={closePopupHandler} received-address-list={adressList}></c-compo-child>
+        </template>
+        <!--End Child Compo-->
+
+    </lightning-card>
+</template>

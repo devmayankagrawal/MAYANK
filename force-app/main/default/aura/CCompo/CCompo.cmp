@@ -1,0 +1,16 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+	<!--Event Register-->    
+    <aura:registerEvent name="BubbbleEventRegister" type="c:CompoEvent"/>
+    
+    <!--Event Handle-->
+    <aura:handler name="BubbbleEventRegister" event="c:CompoEvent" action="{!c.handleController}" phase="capture"/>
+    
+    <lightning:card title="Component C">
+    
+        I am from Component C <br/>
+        <lightning:button variant="brand" label="Fire Event" onclick="{!c.fireEventController}"/>
+        
+    </lightning:card>
+    
+</aura:component>

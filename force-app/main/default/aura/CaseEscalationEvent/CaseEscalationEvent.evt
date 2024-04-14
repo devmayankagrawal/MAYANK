@@ -1,0 +1,6 @@
+<aura:event type="COMPONENT" description="Event template" >
+    
+    <aura:attribute name="showPopupModalFlagEvent" type="boolean"/>
+    <aura:attribute name="CaseObjectEvent" type="Case" default="{'sObjectType' : 'Case'}"/>
+    
+</aura:event>

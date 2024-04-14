@@ -1,0 +1,39 @@
+<aura:component controller="AccountProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="accountObject" type="Account" default="{'sObjectType' : 'Account'}"/>
+    <aura:attribute name="accTableColList" type="list"/>
+    <aura:attribute name="accList" type="list"/>
+    <aura:attribute name="showTableFlag" type="boolean" default="false"/>
+    <aura:attribute name="showSpinnerFlag" type="boolean" default="false"/>
+    
+    <lightning:card title="Account Type">
+        
+        <lightning:select value="{!v.accountObject.Type}" label="Select Account Type" aura:id="accTypeId" onchange="{!c.accTypeController}" required="true">
+            <option value="">Select type...</option>
+            <option value="Prospect">Prospect</option>
+            <option value="Customer - Direct">Customer - Direct</option>
+            <option value="Customer - Channel">Customer - Channel</option>
+            <option value="Channel Partner">Channel Partner</option>
+            <option value="Installation Partner">Installation Partner</option>
+        </lightning:select>
+        
+        <aura:if isTrue="{!v.showTableFlag}">
+            <lightning:datatable
+                                 keyField="id"
+                                 data="{!v.accList}"
+                                 columns="{!v.accTableColList }"
+                                 hideCheckboxColumn="false"  
+                                 onrowselection ="{!c.selectedAccountRows}"  />
+            
+        </aura:if>
+        
+        <aura:if isTrue="{!v.showSpinnerFlag}">
+            <div class="exampleHolder">
+                <lightning:spinner alternativeText="Loading" size="medium" />
+            </div>
+        </aura:if>
+        
+    </lightning:card>
+    
+    
+</aura:component>

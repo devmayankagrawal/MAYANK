@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <aura:attribute name="receivedData" type="string" default="Waiting..."/>
+    
+    <lightning:card title="Udhav Compo" aura:id="myCardId">
+    
+        <lightning:button aura:id="receivedButtonId" variant='brand' iconName="utility:search" label="Receive from Child" onclick="{!c.receiveFromChildController}"/><br/>
+        
+        Data received from aditya compo = <ui:outputText value="{!v.receivedData}"/><br/>
+        
+        =======================================
+    
+        <!--Calling Aditya Compo-->
+        <c:AuraAdityaCompo aura:id="adityaChildId"/>
+        
+    </lightning:card>
+</aura:component>

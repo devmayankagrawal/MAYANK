@@ -1,0 +1,17 @@
+<aura:component controller="AccountProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="accountObject" type="Account" default="{'sobjectType' : 'Account'}" />
+    <aura:attribute name="showingError" type="boolean" default="false"/>
+    
+    <lightning:card title="New Account Record">
+        
+        <lightning:input name="accountName" label="Enter Account Name" value="{!v.accountObject.Name}"  required="true" aura:Id="accountNameId" onblur="{!c.checkAccountDetailsController}" />
+        <lightning:input name="accountType" label="Enter Account Type" value="{!v.accountObject.Type}" />
+        <lightning:input name="accountSLA" label="Enter Account SLA" value="{!v.accountObject.SLA__c}" /><br/>
+        
+        <lightning:button variant="brand" label="Save" title="Save" onclick="{! c.createNewAccountController}" disabled="{!v.showingError}"/>
+        
+    </lightning:card>
+    
+    
+</aura:component>

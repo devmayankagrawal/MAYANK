@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Product Component">
+
+    Data received from child = {receivedFromTax}        
+
+        <!--Calling Tax Component Start-->
+                <c-tax-component onmyshopevent={taxHandler}></c-tax-component>
+        <!--Calling Tax Component End-->
+
+    </lightning-card>
+</template>

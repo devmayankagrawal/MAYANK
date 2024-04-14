@@ -1,0 +1,81 @@
+<template>
+    <lightning-card title="Account CRUD Operations Form">
+        <lightning-button icon-name="utility : record_create" variant="neutral" label="Create"  onclick={createAccountHandler}></lightning-button> &nbsp;
+        <lightning-button icon-name="utility : search" variant="brand" label="Search"  onclick={searchAccountHandler}></lightning-button> &nbsp;
+        <lightning-button icon-name="utility : record_update" variant="success" label="Update" onclick={updateAccountHandler}></lightning-button> &nbsp;
+        <lightning-button icon-name="utility : record_delete" variant="destructive" label="Delete" onclick={deleteAccountHandler}></lightning-button> &nbsp;
+        <lightning-button icon-name="utility : undelete" variant="brand-outline" label="Undelete" onclick={undeleteAccountHandler}></lightning-button> &nbsp; <br/>
+
+        <lightning-input type="text" data-formfield="accountName" placeholder="Enter Account Name" label="Account Name" name="accountName" required="true" value={objAccount.Name}></lightning-input>
+
+        <lightning-combobox
+        name="Type"
+        label="Type"
+        value={objAccount.Type}
+        placeholder="Select Type"
+        options={optionsType}
+        onchange={handleChangeType} ></lightning-combobox>
+
+        <lightning-combobox
+        name="Rating"
+        label="Rating"
+        value={objAccount.Rating}
+        placeholder="Select Rating"
+        options={optionsRating}
+        onchange={handleChangeRating} ></lightning-combobox>
+
+        <lightning-combobox
+        name="SLA"
+        label="SLA"
+        value={objAccount.SLA__c}
+        placeholder="Select SLA"
+        options={optionsSLA}
+        onchange={handleChangeSLA} ></lightning-combobox> <br/> <br/>
+
+        Account Details <br/><br/>
+        Account Name   : {objAccount.Name}<br/>
+        Account Type   : {objAccount.Type}<br/>
+        Account Rating : {objAccount.Rating}<br/>
+        Account SLA    : {objAccount.SLA__c}<br/><br/>
+
+        <table  class="css-serial">
+
+            <!--Header of the table-->
+            <thead>
+                <tr>
+                    <th> Sr.No. </th>
+                    <th> Account Name </th>
+                    <th> Type </th>
+                    <th> Rating </th>
+                    <th> SLA </th>
+            
+               </tr>
+            </thead>
+
+            <!--Body of the table-->
+            <tbody>
+               
+                    <tr >
+                        <td>          &nbsp;           </td>
+                        <td>     {objAccount.Name}     </td>
+                        <td>     {objAccount.Type}     </td>
+                        <td>     {objAccount.Rating}     </td>
+                        <td>     {objAccount.SLA__c}     </td>
+
+                    </tr>
+                    
+                
+            </tbody>
+        </table>
+
+        <template if:true={showSpinnerFlag}>
+            <div class="exampleHolder">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+
+
+
+    </lightning-card>
+</template>

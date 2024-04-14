@@ -1,0 +1,19 @@
+<apex:page standardController="Applicant__c" extensions="AppVFTablePDF_CX">
+      <apex:pageBlock title="Applicant Information">
+          <apex:pageBlockSection title="Applicant Records">
+                  <apex:pageBlockTable value="{!appList}" var="objApp">
+                          <apex:column value="{!objApp.Name}"/>
+                          <apex:column value="{!objApp.First_Name__c}"/>
+                          <apex:column value="{!objApp.Last_Name__c}"/>
+                          <apex:column value="{!objApp.Gender__c}"/>
+                          <apex:column value="{!objApp.Police_Verification__c}"/>
+                          <apex:column value="{!objApp.CreatedBy.Name}"/>
+                  </apex:pageBlockTable>
+                  
+                                  <apex:pageBlockTable value="{!accList}" var="objAcc">
+                                  <apex:column value="{!objAcc.Name}"/>
+                                  
+                  </apex:pageBlockTable>
+          </apex:pageBlockSection>
+      </apex:pageBlock>
+</apex:page>

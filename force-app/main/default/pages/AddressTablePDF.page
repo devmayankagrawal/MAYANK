@@ -1,0 +1,25 @@
+<apex:page standardController="Address__c" extensions="AddressTablePDF_CX" renderAs="pdf" >
+
+    <apex:pageBlock title="Adress Information">
+    <apex:pageBlockSection title="Address records">
+    <apex:pageBlockTable value="{!adrList}" var="objAdr">
+    <apex:column value="{!objAdr.Applicant__c}"/>
+     <apex:column value="{!objAdr.Applicant_Full_Name__c}"/>
+      <apex:column value="{!objAdr.Applicant__r.Gender__c}"/>
+       <apex:column value="{!objAdr.Applicant__r.Age__c}"/>
+        <apex:column value="{!objAdr.Address_Line_1__c}"/>
+         <apex:column value="{!objAdr.Address_Line_2__c}"/>
+          <apex:column value="{!objAdr.Country__c}"/>
+          <apex:column value="{!objAdr.State__c}"/>
+          <apex:column value="{!objAdr.City__c}"/>
+    
+    
+    
+    
+    
+    
+    </apex:pageBlockTable>
+    </apex:pageBlockSection>
+     </apex:pageBlock>
+  
+</apex:page>

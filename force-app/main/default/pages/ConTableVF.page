@@ -1,0 +1,13 @@
+<apex:page standardController="Contact" extensions="ConTableVF_Cx">
+     <apex:pageBlock title="Contacts Information">
+         <apex:pageBlockSection title="Contact Records">
+                <apex:pageBlockTable value="{!conList}" var="objCon">
+                    <apex:column value="{!objCon.Account.Name}"/>
+                     <apex:column value="{!objCon.FirstName}"/>
+                      <apex:column value="{!objCon.LastName}"/>
+                       <apex:column value="{!objCon.Department}"/>
+                        <apex:column value="{!objCon.Level__c}"/>
+                </apex:pageBlockTable>
+         </apex:pageBlockSection>
+     </apex:pageBlock>
+</apex:page>

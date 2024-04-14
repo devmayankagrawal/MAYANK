@@ -1,0 +1,25 @@
+<template>
+    <lightning-card>
+
+        Total Records : {totalRecords}<br />
+        
+
+        <lightning-combobox
+        name="caseStatus"
+        label="Select Case Status"
+        value={caseStatus}
+        placeholder="Select Case Status"
+        options={caseStatuses}
+        onchange={handleCaseStatusChange} ></lightning-combobox> <br />
+
+            
+    <template if:true={showSpinnerFlag}>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    </template>
+
+        <!--Calling Case table-->
+        <c-case-table-compo case-status-list={caseList}>  </c-case-table-compo>
+        <!--Calling Case table End-->
+
+    </lightning-card>
+</template>

@@ -1,0 +1,16 @@
+<apex:page standardController="Customer__c" extensions="VFCountryCode_CX">
+    <apex:form >
+         <apex:pageBlock title="Customer">
+             <apex:pageBlockSection title="Customer Basic Information">
+             
+                         Country Code = {!countryCode}
+             
+                     <apex:selectList value="{!countryCode}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!countriesOptions}"/>
+                            <apex:actionSupport event="onChange"/>
+                     </apex:selectList>
+             
+             </apex:pageBlockSection>
+         </apex:pageBlock>
+     </apex:form>
+</apex:page>

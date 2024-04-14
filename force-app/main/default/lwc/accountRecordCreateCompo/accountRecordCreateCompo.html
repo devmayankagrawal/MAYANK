@@ -1,0 +1,34 @@
+<template>
+    <lightning-card>
+        <lightning-input data-formfield="accountName" type="text" label="Enter Account Name" placeholder="Enter account Name"></lightning-input>
+        <lightning-combobox
+            name="Type"
+            label="Select Type"
+            value={value}
+            placeholder="Select Account Type"
+            options={optionsType}
+            onchange={handleChangeType} ></lightning-combobox>
+
+            <lightning-combobox
+            name="Rating"
+            label="Select Rating"
+            value={value}
+            placeholder="Select Account Rating"
+            options={optionsRating}
+            onchange={handleChangeRating} ></lightning-combobox>
+
+            <lightning-combobox
+            name="SLA"
+            label="Select SLA"
+            value={value}
+            placeholder="Select Account SLA"
+            options={optionsSLA}
+            onchange={handleChangeSLA} ></lightning-combobox>
+
+
+
+
+
+        <lightning-button variant="brand" icon-name="utility:record_create" label="Create" onclick={saveButtonHandler}></lightning-button>
+    </lightning-card>
+</template>

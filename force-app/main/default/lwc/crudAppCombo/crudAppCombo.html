@@ -1,0 +1,18 @@
+<template>
+    <lightning-card>
+        <lightning-button icon-name="utility:record_create" variant="neutral" label="Create" onclick={createApplicantHandler}></lightning-button> &nbsp;
+        <lightning-button icon-name="utility:search" variant="brand" label="Search" onclick={searchApplicantHandler}></lightning-button> &nbsp;
+        <lightning-button icon-name="utility:edit" variant="success" label="Update" onclick={updateApplicantHandler}></lightning-button> &nbsp;
+        <lightning-button icon-name="utility:delete" variant="destructive" label="Delete" onclick={deleteApplicantHandler}></lightning-button> &nbsp;
+        <lightning-button icon-name="utility:undelete" variant="brand" label="Undelete" onclick={undeleteApplicantHandler}></lightning-button> &nbsp; <br/>
+
+        <lightning-input data-formfield="applicantFirstName" type="text" label="Enter Applicant First Name" placeholder="Enter First Name" required="true"></lightning-input> <br/>
+        
+        <lightning-input data-formfield="applicantLastName" type="text" label="Enter Applicant Last Name" placeholder="Enter Last Name"></lightning-input> <br/>
+        
+        <lightning-input data-formfield="applicantGender" type="text" label="Enter Applicant Gender" placeholder="Enter Gender"></lightning-input> <br/>
+        
+        <lightning-input data-formfield="applicantDOB" type="date" label="Enter Applicant DOB" placeholder="Enter DOB"></lightning-input> <br/>
+
+    </lightning-card>
+</template>

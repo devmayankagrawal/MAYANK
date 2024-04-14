@@ -1,0 +1,20 @@
+<aura:component controller="ApplicantProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+    <aura:attribute name="applicantList" type="list"/>
+    <aura:attribute name="appTableColList" type="list"/>
+    
+    <!--Handler-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:card title="Applicant Table">
+    
+        <lightning:datatable
+                keyField="id"
+                data="{! v.applicantList }"
+                columns="{! v.appTableColList }"
+                hideCheckboxColumn="false"    />
+
+        
+    </lightning:card>
+    
+</aura:component>

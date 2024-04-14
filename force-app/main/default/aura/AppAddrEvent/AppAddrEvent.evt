@@ -1,0 +1,6 @@
+<aura:event type="APPLICATION" description="Event template" >
+    
+    <aura:attribute name="AppAdrEventAddressList" type="list"/>
+    <aura:attribute name="eventAppObject" type="Applicant__c" default="{'sObjectType' : 'Applicant__c'}" />
+    
+</aura:event>

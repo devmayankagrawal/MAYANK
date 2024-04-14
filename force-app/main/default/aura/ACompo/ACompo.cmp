@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <!--Event Handle-->
+    <aura:handler name="BubbbleEventRegister" event="c:CompoEvent" action="{!c.handleController}" phase="bubble" />
+    
+    <lightning:card title="Component A">
+    
+        I am from Component A <br/>
+        ==========================================<br/>
+        <c:BCompo/>
+    </lightning:card>
+    
+</aura:component>

@@ -1,0 +1,9 @@
+<template>
+    <lightning-card>
+        <lightning-input data-formfield="applicantId" type="text" placeholder="Enter Applicant ID" name="applicantId" onblur={applicantRecordHandler}></lightning-input>
+
+         <!--Calling Tax Component Start-->
+        <c-tax product-address-list={addressList}>  </c-tax>
+        <!--Calling Tax Component End-->
+    </lightning-card>
+</template>

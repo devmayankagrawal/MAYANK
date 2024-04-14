@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Case Table LMS">
+        Selected Records = {selectedRecordsCount} <br/>
+        Total Cases Found = {totalCases} 
+        <lightning-datatable
+            key-field="Id"
+            data={caseTableList}
+            columns={columns}    
+            draft-values={draftValues} 
+            onrowselection={selectedRecordsHandler}                     
+            onsave={saveHandler}   > 
+        </lightning-datatable>
+
+        <template if:true={showSpinnerFlag}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+    </lightning-card>    
+
+</template>

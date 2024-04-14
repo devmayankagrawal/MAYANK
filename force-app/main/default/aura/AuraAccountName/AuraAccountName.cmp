@@ -1,0 +1,55 @@
+<aura:component controller="AccountProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="accountObject" type="Account" default="{'sObjectType' : 'Account'}"/>
+    <aura:attribute name="oppTableColList" type="List"/>
+    <aura:attribute name="oppList" type="List" />
+     <aura:attribute name="selectedRecordCount" type="Integer" default="0" />
+    <aura:attribute name="totalRecords" type="Integer" default="0" />
+    <aura:attribute name="selectedOpportunityRecordList" type="List"/>
+    <aura:attribute name="showTableFlag" type="Boolean" default="false"/>
+    
+    
+    <lightning:card title="Account Compo">
+        
+        <lightning:input type="text" label="Enter Account Name" value="{!v.accountObject.Name}" required="true"/><br/>
+        <lightning:button variant="brand" iconName="utility:send" label="Show" onclick="{!c.showAccountDataController}"/>
+        
+        <aura:if isTrue="{!v.showTableFlag}">
+        <table class="slds-table slds-table--bordered slds-table--striped">
+            <thead>
+                <tr>
+                    <th scope="col"><span class="slds-truncate" >Account Name</span></th>
+                    <th scope="col"><span class="slds-truncate">Type</span></th>
+                    <th scope="col"><span class="slds-truncate" >Rating</span></th>
+                    <th scope="col"><span class="slds-truncate">SLA__c</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td> <ui:outputText value="{!v.accountObject.Name}" /> </td>
+                    <td> <ui:outputText value="{!v.accountObject.Type}" />  </td>
+                    <td> <ui:outputText value="{!v.accountObject.Rating}" />  </td>
+                    <td> <ui:outputText value="{!v.accountObject.SLA__c}" />  </td>
+                </tr>
+                
+            </tbody>
+        </table>
+            </aura:if><br/><br/>
+        
+        <lightning:button variant="destructive" iconName="utility:record_delete" label="Delete selected Records" onclick="{!c.deleteSelectedOpportunityController}"/><br/><br/>
+        
+        Total Records =  <ui:outputText value="{!v.totalRecords}" />  &nbsp; Selected Records = <ui:outputText value="{!v.selectedRecordCount}" /> <br /><br />
+        
+        
+        <lightning:datatable
+                             keyField="id"
+                             data="{! v.oppList }"
+                             columns="{!v.oppTableColList }"
+                             hideCheckboxColumn="false"  
+                             onrowselection ="{!c.selectedOpportunityRows}"   />
+        
+        
+    </lightning:card>
+    
+</aura:component>

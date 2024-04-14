@@ -1,0 +1,10 @@
+<template>
+    <lightning-card>
+        I a from Parent Compo. Parent Salary is : {salary} <br/>
+
+        <lightning-input data-formfield="accName" type="text" placeholder="Enter Account Name" name="accName"></lightning-input>
+        <lightning-button variant="brand" icon-name="utility:send" label="Send" onclick={sendAccountHandler}></lightning-button>
+
+        <c-child-compo child-data={salary} employee-name-from-parent={employeeName} car-from-parent={Car} obj-acc-received-parent={objAccount}>         </c-child-compo>
+    </lightning-card>
+</template>

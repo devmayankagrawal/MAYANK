@@ -1,0 +1,7 @@
+<apex:page standardController="Applicant__c" extensions="ApplicantToAddressVF_CX">
+    <apex:pageBlock title="Applicant Information">
+          <apex:pageBlockSection title="Applicant and Address Records">
+          </apex:pageBlockSection>
+    </apex:pageBlock>
+  
+</apex:page>

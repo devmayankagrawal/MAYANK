@@ -1,0 +1,54 @@
+<aura:component controller="AccountProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="oppObj"
+                    type="Opportunity"
+                    default="{'sObjectType' : 'Opportunity'}" />
+    <aura:attribute name="showTableFlag"
+                    type="Boolean"
+                    default="false" />
+    <aura:attribute name="opportunityList"
+                    type="List" />
+    
+    <lightning:card>
+        <div>
+            <h1 slot="title">Account Opportunity Table</h1>
+        </div>
+        <div class="slds-var-p-around_medium lgc-bg">
+            <lightning:input type="text" label="Enter Account Name" value="{!v.oppObj.AccountId}" /> <br/>
+            <lightning:select value="{!v.oppObj.StageName}" label="Select Opportunity Stage" >
+                <option value="" >Select Stage</option>
+                <option value="Prospecting" >Prospecting</option>
+                <option value="Qualification" >Qualification</option>
+                <option value="Needs Analysis" >Needs Analysis</option>
+                <option value="Value Proposition" >Value Proposition</option>
+            </lightning:select> <br/>
+            <lightning:button iconName="utility:search" variant="brand" label="Show Opportunity" onclick="{!c.searchOpportunityController}" /> <br/> <br/>
+            
+            <aura:if isTrue="{!v.showTableFlag}" >
+                <table class="slds-table slds-table--bordered slds-table--striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"><span class="slds-truncate" >Account Name</span></th>
+                            <th scope="col"><span class="slds-truncate">Opportunity Stage</span></th>
+                            <th scope="col"><span class="slds-truncate">Opportunity Name</span></th>
+                            <th scope="col"><span class="slds-truncate">Opportunity Close Date</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.opportunityList}" var="ObjOpp">
+                            <tr>
+                                <td> <ui:outputText value="{!ObjOpp.Account.Name}" /> </td>
+                                <td> <ui:outputText value="{!ObjOpp.StageName}" /> </td>
+                                <td> <ui:outputText value="{!ObjOpp.Name}" /> </td>
+                                <td> <ui:outputText value="{!ObjOpp.CloseDate}" /></td>
+                                
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </aura:if>
+            
+            
+        </div>
+    </lightning:card>
+</aura:component>

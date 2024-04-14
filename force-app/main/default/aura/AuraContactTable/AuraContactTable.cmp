@@ -1,0 +1,28 @@
+<aura:component controller="AccountProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <aura:attribute name="contactTablecolumns" type="list"/>
+    <aura:attribute name="contactList" type="list"/>
+    <aura:attribute name="selectedContactRecordList" type="list"/>
+    <aura:attribute name="accountObject" type="Account" default="{'sObjectType' : 'Account'}"/>
+    <aura:attribute name="selectedRecordCount" type="Integer" default="0" />
+    <aura:attribute name="totalRecords" type="Integer" default="0" />
+
+    
+     <!--Event Handler Start-->
+    <aura:handler event="c:AccountContactEvent" action="{!c.receiveDataController}"/>
+    <!--Event Handler End-->
+     <lightning:card title="Contact Table">
+         
+    <lightning:button variant="destructive" iconName="utility:record_delete" label="Delete Selected Contacts" onclick="{!c.deleteSelectedContactsController}"/><br/><br/>
+    Total Records =  <ui:outputText value="{!v.totalRecords}" />  &nbsp; Selected Records = <ui:outputText value="{!v.selectedRecordCount}" /> <br /><br />
+   
+        <lightning:datatable
+                             keyField="id"
+                             data="{!v.contactList }"
+                             columns="{!v.contactTablecolumns }"
+                             hideCheckboxColumn="false"
+                             onrowselection ="{!c.selectedContactRows}"  />
+    
+    </lightning:card>
+    
+</aura:component>

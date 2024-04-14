@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <aura:attribute name="adityaData" type="string" default="Aditya"/>
+    
+    <aura:Method name="ChildAuraMethod" action="{!c.sendDataController}"/>
+    
+    <lightning:card title="Aditya Compo">
+    
+        Customer record in Aditya child compo = <ui:outputText value="{!v.adityaData}"/>
+    
+    </lightning:card>
+    
+</aura:component>

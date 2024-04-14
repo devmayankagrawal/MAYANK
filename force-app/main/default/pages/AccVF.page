@@ -1,0 +1,6 @@
+<apex:page standardController="Account" extensions="AccVF_CX" renderAs="pdf">
+  
+  Name={!objAcc.Name}<br/>
+  Type={!objAcc.Type}<br/>
+  SLA = {!objAcc.SLA__c}
+</apex:page>

@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Child Communication"></lightning-card>
+
+    <!--Data Table Start-->
+
+            <lightning-datatable
+            key-field="Id"
+            data={receivedAdressList}
+            columns={columns}    
+            draft-values={draftValues} 
+            onrowselection={selectedRecordsHandler}                     
+            onsave={saveHandler}> 
+        </lightning-datatable>
+
+        <!--Data Table End-->
+
+</template>

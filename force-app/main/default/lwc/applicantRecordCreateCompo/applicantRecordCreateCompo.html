@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Applicant Registration Form">
+
+        <lightning-input data-formfield="appFirstName" type="text" label="Enter First Name" placeholder="Enter First Name" required=""></lightning-input>
+       <lightning-input data-formfield="appLastName" type="text" label="Enter Last Name" placeholder="Enter Last Name" required=""></lightning-input>
+       <lightning-combobox
+       name="gender"
+       label="Gender"
+       value={value}
+       placeholder="Select Gender"
+       options={optionsGender}
+       onchange={handleChangeGender} ></lightning-combobox>
+
+        <lightning-input data-formfield="appDOB" type="date" label="Enter DOB" placeholder="Select DOB"></lightning-input>
+        <lightning-input data-formfield="appNumber" type="phone" label="Enter Phone Number" placeholder="Enter Phone Number"></lightning-input>
+        <lightning-input data-formfield="appEmail" type="email" label="Enter Email" placeholder="Enter Email"></lightning-input>
+      
+        <lightning-button variant="sucess" icon-name="utility:record_create" label="Create" onclick={applicantRecordHandler}></lightning-button>
+    </lightning-card>
+</template>

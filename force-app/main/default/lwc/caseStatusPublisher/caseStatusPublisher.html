@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Case Status Publisher">
+       
+        
+        <lightning-combobox
+        name="caseStatus"
+        label="Select Case Status"
+        value={caseStatus}
+        placeholder="Select Case Status"
+        options={caseStatuses}
+        onchange={handleCaseStatusChange} ></lightning-combobox> <br />
+
+    </lightning-card>
+</template>

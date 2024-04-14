@@ -1,0 +1,29 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+      <lightning:recordEditForm 
+        recordId="{!v.recordId}"
+        objectApiName="Opportunity">
+        <lightning:messages />
+            <div >
+                <div >
+                    <lightning:inputField fieldName="Name"/>
+                </div>
+                <div >
+                    <lightning:inputField fieldName="StageName"/>
+                </div>
+                <div >
+                    <lightning:inputField fieldName="CloseDate"/>
+                </div>
+                <div >
+                    <lightning:inputField fieldName="Amount"/>
+                </div>
+                <div >
+                    <lightning:inputField fieldName="Type"/>
+                </div>
+            </div>
+        <lightning:button class="slds-m-top_small" type="submit" label="Update" />
+    </lightning:recordEditForm>
+    
+    
+    
+</aura:component>

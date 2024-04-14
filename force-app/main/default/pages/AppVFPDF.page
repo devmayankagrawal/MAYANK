@@ -1,0 +1,17 @@
+<apex:page standardController="Applicant__c" extensions="AppVFPDF_CX" renderAs="pdf">
+     <apex:pageBlock title="Applicant Information">
+         <apex:pageBlockSection title="Applicant Records">
+                    
+                    <apex:outputPanel >
+                            Applicant Id ={!objApp.Name}<br/>
+                            First Name = {!objApp.First_Name__c}<br/>
+                            Last Name = {!objApp.Last_Name__c}<br/>
+                            Gender = {!objApp.Gender__c}<br/>
+                            Aadhaar Number = {!objApp.Aadhar_Number__c}<br/>
+                    </apex:outputPanel><br/>
+                        <apex:outputPanel rendered="{!showNoteFlag}">
+                            Note:- Your Aadhar Card is Not available in your Bank Account, Kindly visit to your nearest branch.
+                        </apex:outputPanel>
+         </apex:pageBlockSection>
+     </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,35 @@
+<apex:page standardController="Account" extensions="AccountToOpportunity_CX" renderAs="pdf">
+     <apex:pageBlock title="Account Information">
+         <apex:pageBlockSection title="Account and Opportunitiy Records">
+             <apex:pageBlockTable value="{!accList}" var="objAcc">
+                 <apex:column value="{!objAcc.Name}"/>
+                 
+                                             <apex:column headerValue="Name">
+                                                     <apex:repeat value="{!objAcc.Opportunities}" var="objOpp">
+                                                         {!objOpp.Name} <br/>
+                                                     </apex:repeat>
+                                             </apex:column>
+                                                      <apex:column headerValue="Amount">
+                                                         <apex:repeat value="{!objAcc.Opportunities}" var="objOpp">
+                                                             {!objOpp.Amount} <br/>
+                                                         </apex:repeat>
+                                                 </apex:column>
+                                                          <apex:column headerValue="Expected Revenue">
+                                                             <apex:repeat value="{!objAcc.Opportunities}" var="objOpp">
+                                                                 {!objOpp.ExpectedRevenue} <br/>
+                                                             </apex:repeat>
+                                                     </apex:column>
+                                                          <apex:column headerValue="Close Date">
+                                                             <apex:repeat value="{!objAcc.Opportunities}" var="objOpp">
+                                                                 {!objOpp.CloseDate} <br/>
+                                                             </apex:repeat>
+                                                     </apex:column>
+                                                             <apex:column headerValue="Stage Name">
+                                                                 <apex:repeat value="{!objAcc.Opportunities}" var="objOpp">
+                                                                     {!objOpp.StageName} <br/>
+                                                                 </apex:repeat>
+                                                         </apex:column>
+             </apex:pageBlockTable>
+         </apex:pageBlockSection>
+     </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Mall Component">
+
+<lightning-button variant="brand" icon-name="utility:preview" label="Show Popup Modal" onclick={showPopoupHandler}></lightning-button>
+
+
+    <template if:true={showPopupModalFlag}>
+        <c-shop-component onmyshopevent={closePopupHanndler}></c-shop-component>
+    </template>
+
+    </lightning-card>
+</template>

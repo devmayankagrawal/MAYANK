@@ -1,0 +1,14 @@
+<apex:page standardController="Address__c" extensions="AddrTableVF_CX">
+          <apex:pageBlock title="Address Information">
+                  <apex:pageBlockSection title="Address Records">
+                          <apex:pageBlockTable value="{!adrList}" var="objAdr">
+                              <apex:column value="{!objAdr.Applicant_Full_Name__c}"/>
+                              <apex:column value="{!objAdr.Applicant__r.Police_Verification__c}"/>
+                              <apex:column value="{!objAdr.Address_Line_1__c}"/>
+                              <apex:column value="{!objAdr.Country__c}"/>
+                              <apex:column value="{!objAdr.State__c}"/>
+                              <apex:column value="{!objAdr.City__c}"/>
+                          </apex:pageBlockTable>
+                  </apex:pageBlockSection>
+          </apex:pageBlock>
+</apex:page>

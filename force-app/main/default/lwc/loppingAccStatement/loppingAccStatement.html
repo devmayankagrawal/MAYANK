@@ -1,0 +1,67 @@
+<template>
+    <lightning-card title="Looping Statement">
+
+        Total Records : {totalRecords}
+
+        <lightning-combobox
+            name="Type"
+            label="Account Type"
+            value={value}
+            placeholder="Select Type"
+            options={optionsType}
+            onchange={handleChangeType} ></lightning-combobox>
+
+
+     <template if:true={showTableFlag}>       
+        <!--Table Start-->
+            <table aria-describedby="conatact-list" class="slds-table  slds-table_bordered ">
+
+                <!--Header of the table-->
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-size_1-of-6 " scope="col">
+                            <div class="slds-truncate " title="Account Name">Account Name</div>
+                        </th>
+                        <th class="slds-size_1-of-6 " scope="col">
+                            <div class="slds-truncate " title="Account Type">Type</div>
+                        </th>
+                        <th class="slds-size_1-of-6 " scope="col">
+                            <div class="slds-truncate " title="Account Rating">Rating</div>
+                        </th>
+                        <th class="slds-size_1-of-6 " scope="col">
+                            <div class="slds-truncate " title="Account SLA">SLA</div>
+                        </th>
+                   </tr>
+                </thead>
+    
+                <!--Body of the table-->
+                <tbody>
+                   
+                       <template for:each={accList} for:item="acc">
+                            <tr key={acc.id}>
+                                  <td>{acc.Name}</td>  
+                                  <td>{acc.Type}</td> 
+                                  <td>{acc.Rating}</td> 
+                                  <td>{acc.SLA__c}</td> 
+                            </tr>
+    
+                       </template>
+                        
+                    
+                </tbody>
+            </table>
+    <!--Table End-->
+</template>
+
+    <template if:false={showTableFlag}>
+        No Records Found...
+    </template>
+
+    <template if:true={showSpinnerFlag}>
+        <div class="exampleHolder">
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+
+    </lightning-card>
+</template>

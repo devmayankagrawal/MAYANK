@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Applicant PopUp Modal">
+
+        <lightning-input type="text" data-formfield="applicantId" placeholder="Enter Applicant Id" onblur={applicantRecordHandler}></lightning-input>
+
+
+<!--Calling Address Component Start-->
+    <template if:true={showPopupModalFlag}>
+        <c-address-popup-window onmyshopevent={closePopupModalHandler} received-adress-list={adressList}></c-address-popup-window>
+    </template>
+<!--Calling Address Component End-->
+
+    </lightning-card>
+</template>

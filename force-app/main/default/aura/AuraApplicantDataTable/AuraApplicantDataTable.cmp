@@ -1,0 +1,36 @@
+<aura:component controller="ApplicantProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="addressList" type="List"/>
+    <aura:attribute name="showTableFlag" type="Boolean" default="false"/>
+    <aura:attribute name="showSpinnerFlag" type="Boolean" default="false"/>
+    <aura:attribute name="appTablecolumns" type="List"/>
+    <aura:attribute name="selectedRecordCount" type="Integer" default="0" />
+    <aura:attribute name="TotalRecords" type="Integer" default="0" />
+    <aura:attribute name="selectedAddressRecordList" type="List" />
+    
+    
+    <lightning:card title="Current Address List">
+        
+        <lightning:button variant="brand" label="Show Current Adresses" iconName="utility:search" onclick="{!c.searchAddressesController}"/>&nbsp;
+        <lightning:button variant="destructive" label="Delete Selected Addresses" iconName="utility:record_delete" onclick="{!c.deleteSelectedAddressesController}"/><br/>
+        <!--Data Table Start-->
+        <aura:if isTrue="{!v.showTableFlag}">
+            Total Records = <ui:outputText value="{!v.TotalRecords}"/> &nbsp; Selected Records = <ui:outputText value="{!v.selectedRecordCount}"/><br/><br/>
+            
+            <lightning:datatable
+                                 keyField="id"
+                                 data="{!v.addressList }"
+                                 columns="{!v.appTablecolumns }"
+                                 hideCheckboxColumn="false"  
+                                 onrowselection ="{!c.selectedAddressRows}"/>
+        </aura:if> 
+        <!--Data Table End-->
+        
+        <aura:if isTrue="{!v.showSpinnerFlag}">
+            <div class="exampleHolder">
+                <lightning:spinner alternativeText="Loading" size="medium" />
+            </div>
+        </aura:if>
+        
+    </lightning:card>
+</aura:component>

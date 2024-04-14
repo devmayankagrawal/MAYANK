@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Subscriber">
+
+        <lightning-datatable
+        key-field="Id"
+        data={receivedAddressList}
+        columns={columns}    
+        draft-values={draftValues}
+        onrowselection={selectedRecordsHandler}                     
+        onsave={saveHandler}>
+        </lightning-datatable>      
+    
+
+
+    </lightning-card>    
+</template>

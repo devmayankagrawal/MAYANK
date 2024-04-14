@@ -1,0 +1,47 @@
+<aura:component controller="ApplicantProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="applicantObject" type="Applicant__c" default="{'sObjectType' : 'Applicant__c'}"/>
+    <aura:attribute name="showTableFlag" type="Boolean" default="false"/>
+    <aura:attribute name="showSpinnerFlag" type="Boolean" default="false"/>
+    
+    <lightning:card title="Applicant HTML Table">
+        
+        <lightning:input type="text" label="Enter Applicant Id" value="{!v.applicantObject.Name}"/> <br/>
+        <lightning:button variant="brand" label="Search" iconName="utility:search" onclick="{!c.searchApplicantController}"/>
+        
+        <!--Table Start-->
+        <aura:if isTrue="{!v.showTableFlag}">
+            <table class="slds-table slds-table--bordered slds-table--striped">
+                <thead>
+                    <tr>
+                        <th scope="col"><span class="slds-truncate" >Applicant Id</span></th>
+                        <th scope="col"><span class="slds-truncate">First Name</span></th>
+                        <th scope="col"><span class="slds-truncate" >Last Name</span></th>
+                        <th scope="col"><span class="slds-truncate">Gender</span></th>
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><ui:outputText value="{!v.applicantObject.Name}"/></td>
+                        <td><ui:outputText value="{!v.applicantObject.First_Name__c}"/></td>
+                        <td><ui:outputText value="{!v.applicantObject.Last_Name__c}"/></td>
+                        <td><ui:outputText value="{!v.applicantObject.Gender__c}"/></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </aura:if>
+        <!--Table End-->
+        
+        <aura:if isTrue="{!v.showSpinnerFlag}">
+            <div class="exampleHolder">
+                <lightning:spinner alternativeText="Loading" size="medium" />
+            </div>
+        </aura:if>
+        
+    </lightning:card>
+    
+</aura:component>

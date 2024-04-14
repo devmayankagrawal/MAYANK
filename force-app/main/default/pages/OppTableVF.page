@@ -1,0 +1,14 @@
+<apex:page standardController="Opportunity" extensions="OppTableVF_CX" renderAs="pdf">
+     <apex:pageBlock title="Opportunity Table">
+         <apex:pageBlockSection title="Opportunity Information">
+                 <apex:pageBlockTable value="{!oppList}" var="objOpp">
+                     <apex:column value="{!objOpp.Account.Name}"/>
+                      <apex:column value="{!objOpp.Name}"/>
+                       <apex:column value="{!objOpp.Amount}"/>
+                        <apex:column value="{!objOpp.ExpectedRevenue}"/>
+                         <apex:column value="{!objOpp.CloseDate}"/>
+                          <apex:column value="{!objOpp.stageName}"/>
+                 </apex:pageBlockTable>
+         </apex:pageBlockSection>
+     </apex:pageBlock>
+</apex:page>

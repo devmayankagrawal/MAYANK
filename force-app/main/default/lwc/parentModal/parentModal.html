@@ -1,0 +1,10 @@
+<template>
+    <lightning-card > 
+        <lightning-input data-formfield="applicantId" type="text" placeholder="Enter Applicant ID" name="applicantId"></lightning-input> <br/>
+        <lightning-button variant="brand" label="Show Popup Modal" onclick={showPopupHandler}></lightning-button>
+
+        <template if:true={showPopupModalFlag}>
+              <c-child-modal onmyeventchild={closePopupHandler}></c-child-modal>
+         </template>
+    </lightning-card>
+</template>

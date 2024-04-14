@@ -1,0 +1,9 @@
+<apex:page standardController="Applicant__c" extensions="AppVF_CX" renderAs="pdf">
+ 
+ 
+     First Name = {!objApplicant.First_Name__c}<br/>
+     Last Name = {!objApplicant.Last_Name__c}<br/>
+     Gender = {!objApplicant.Gender__c}
+     
+     
+</apex:page>

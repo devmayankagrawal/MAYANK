@@ -1,0 +1,18 @@
+<template>
+    <lightning-card>
+        <lightning-button variant="brand" icon-name="utility:search" label="Search" onclick={searchHandler}></lightning-button> &nbsp;
+        <lightning-button variant="success" icon-name="utility:edit" label="Edit" onclick={editHandler}></lightning-button> <br/>
+        
+
+        <template if:true={showMessageFlag}>
+            Lakhan!!!!...
+        </template>
+        <template if:true={showSpinnerFlag}>
+
+            <div class="exampleHolder">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+    </lightning-card>
+</template>

@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Case Table LMS">
+
+        
+        <lightning-datatable
+        key-field="Id"
+        data={receivedStatus}
+        columns={columns}    
+        draft-values={draftValues} 
+        onrowselection={selectedRecordsHandler}                     
+        onsave={saveHandler}   > 
+        </lightning-datatable>
+
+    </lightning-card>
+</template>

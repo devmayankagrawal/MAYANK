@@ -1,0 +1,23 @@
+<template>
+   <lightning-card>
+    <lightning-input type="text" label="First Name" placeholder="Enter First Name" name="firstName"></lightning-input>
+    <lightning-input type="text" label="Last Name" placeholder="Enter Last Name" name="lastName"></lightning-input>
+
+    <lightning-combobox
+            name="Gender"
+            label="Gender"
+            value={value}
+            placeholder="Select Gender"
+            options={options}
+            onchange={handleChange} ></lightning-combobox>  
+
+    <lightning-input type="date" label="DOB" placeholder="Select DOB" name="dob"></lightning-input> <br/> <br/>
+
+ <lightning-button variant="Success" icon-name="utility:success" label="Show Name" onclick={showName}></lightning-button> <br/> <br/>
+
+    First Name = {firstName} <br/>
+    Last Name = {lastName} <br/>
+    Gender = {gender} <br/>
+    DOB = {dob}
+</lightning-card>
+</template>

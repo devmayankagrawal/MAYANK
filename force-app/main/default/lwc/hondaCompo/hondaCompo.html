@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Parent Compo">
+        
+       <lightning-input type="text" data-formfield="applicantId" placeholder="Enter Applicant Id" onblur={applicantRecordHandler}></lightning-input>
+
+       <template if:true={showPopupModalFlag}>
+                 <c-city-compo onmycityevent={closePopUphandler} received-address-list={addressList}></c-city-compo>
+       </template>
+
+    </lightning-card>
+</template>

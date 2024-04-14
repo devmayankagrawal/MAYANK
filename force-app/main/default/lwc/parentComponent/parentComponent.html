@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Parent Compo">
+
+       <lightning-input type="text" data-formfield="applicantId" placeholder="Enter Applicant Id" onblur={applicantRecordHandler}></lightning-input><br/>
+
+       <template if:true={showTableFlag}>
+            <c-child-component received-address-list={addressList}></c-child-component>
+         </template>
+
+         <template if:true={showSpinnerFlag}>
+            <div class="exampleHolder">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+    
+
+     </lightning-card>
+</template>

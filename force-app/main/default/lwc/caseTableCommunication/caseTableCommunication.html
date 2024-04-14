@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Case Table Component">
+
+
+        <lightning-datatable
+        key-field="Id"
+        data={receivedCaseList}
+        columns={columns}    
+        draft-values={draftValues} 
+        onrowselection={selectedRecordsHandler}                     
+        onsave={saveHandler}   > 
+</lightning-datatable>
+
+        
+    </lightning-card>
+</template>

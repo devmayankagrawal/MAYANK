@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="Event template" >
+    
+    <aura:attribute name="sitaramanEventAccName" type="string"/>
+    
+</aura:event>

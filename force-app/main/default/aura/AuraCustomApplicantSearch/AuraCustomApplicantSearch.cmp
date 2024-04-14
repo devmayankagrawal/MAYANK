@@ -1,0 +1,31 @@
+<aura:component controller="ApplicantProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="applicantObject" type="Applicant__c" default="{'sObjectType' : 'Applicant__c'}"/>
+    <aura:attribute name="showSpinnerFlag" type="Boolean" default ="false" />
+    
+    <lightning:card title="Search Account Record">
+        
+        <lightning:input name="applicantName" label="Enter Applicant Id" value="{!v.applicantObject.Name}" required="true"/> <br/>
+        
+        <lightning:button iconName="utility:search" variant="brand" label="Search" title="Search" onclick="{!c.searchApplicantController}" /> <br/>
+        
+        
+        First Name : {!v.applicantObject.First_Name__c}<br/>    
+        Last Name : {!v.applicantObject.Last_Name__c}<br/>
+        Gender : {!v.applicantObject.Gender__c}<br/>
+        Police Verification : {!v.applicantObject.Police_Verification__c}
+        
+        <aura:if isTrue="{!v.showSpinnerFlag}">
+            <div class="exampleHolder">
+                <lightning:spinner alternativeText="Loading" size="medium" />
+            </div> 
+        </aura:if>
+        
+        
+    </lightning:card>
+    
+    
+    
+    
+    
+</aura:component>

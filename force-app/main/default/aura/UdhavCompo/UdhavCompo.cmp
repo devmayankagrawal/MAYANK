@@ -1,0 +1,23 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <aura:attribute name="thakreAmount" type="decimal" default="0"/>
+    <aura:attribute name="sendAmount" type="decimal" default="0"/>
+    <aura:attribute name="receivedFromAditya" type="decimal" default="0"/>
+    
+    <!--Handler Event-->
+    <aura:handler name="RashmiEventRegister" event="c:RashmiEvent" action="{!c.receiveDataController}"/>
+    
+    <lightning:card title="Udhav Component">
+    
+        <lightning:input type="decimal" label="Enter Amount" value="{!v.thakreAmount}"/><br/>
+        <lightning:button variant="brand" iconName="utility:send" label="Send to Aditya" onclick="{!c.sendController}"/><br/><br/>
+        
+        Received Amount from Aditya = <ui:outputText value="{!v.receivedFromAditya}"/><br/>
+        =========================<br/>
+        
+   
+        <c:AdityaCompo receivedFromUdhav="{!v.sendAmount}"/>
+    
+    </lightning:card>
+    
+</aura:component>

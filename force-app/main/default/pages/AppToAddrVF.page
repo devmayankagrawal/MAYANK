@@ -1,0 +1,34 @@
+<apex:page standardController="Applicant__c" extensions="AppToAddrVF_CX">
+     <apex:pageBlock title="Applicant Information">
+         <apex:pageBlockSection title="Applicant and Address Records">
+                 <apex:pageBlockTable value="{!appList}" var="objApp">
+                         <apex:column value="{!objApp.Name}"/>
+                         <apex:column value="{!objApp.First_Name__c}"/>
+                          <apex:column value="{!objApp.Last_Name__c}"/>
+                           <apex:column value="{!objApp.Gender__c}"/>
+                           
+                                   <apex:column headerValue="Address Line 1">
+                                           <apex:repeat value="{!objApp.Addresses__r}" var="objAdr">
+                                               {!objAdr.Address_Line_1__c}<br/>
+                                           </apex:repeat>
+                                   </apex:column>
+                                   <apex:column headerValue="Country">
+                                           <apex:repeat value="{!objApp.Addresses__r}" var="objAdr">
+                                               {!objAdr.Country__c}<br/>
+                                           </apex:repeat>
+                                   </apex:column>
+                                   <apex:column headerValue="State">
+                                           <apex:repeat value="{!objApp.Addresses__r}" var="objAdr">
+                                               {!objAdr.State__c}<br/>
+                                           </apex:repeat>
+                                   </apex:column>
+                                   <apex:column headerValue="City">
+                                           <apex:repeat value="{!objApp.Addresses__r}" var="objAdr">
+                                               {!objAdr.City__c}<br/>
+                                           </apex:repeat>
+                                   </apex:column>
+                                   
+                 </apex:pageBlockTable>
+         </apex:pageBlockSection>
+     </apex:pageBlock>
+</apex:page>

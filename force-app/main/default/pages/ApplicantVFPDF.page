@@ -1,0 +1,6 @@
+<apex:page standardController="Applicant__c" extensions="ApplicantVFPDF_CX" renderAs="PDF">
+ 
+ First Name = {!objApp.First_Name__c} <br />
+     Last Name = {!objApp.Last_Name__c}  <br />
+ID = {!objApp.id}
+</apex:page>

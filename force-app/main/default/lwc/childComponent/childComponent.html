@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Child Compo">
+
+        <lightning-datatable
+        key-field="Id"
+        data={receivedAddressList}
+        columns={columns}    
+        draft-values={draftValues} 
+        onrowselection={selectedRecordsHandler}                     
+        onsave={saveHandler}   > 
+        </lightning-datatable>
+
+
+    </lightning-card>
+</template>

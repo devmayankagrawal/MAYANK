@@ -1,0 +1,61 @@
+<template>
+    <lightning-card>
+        <lightning-button icon-name="utility:record_create" variant="neutral" label="create" onclick={createAccountHandler}> </lightning-button> &nbsp;
+        <lightning-button icon-name="utility:search" variant="brand" label="Search" onclick={searchAccountHandler}> </lightning-button> &nbsp;
+        <lightning-button icon-name="utility:edit" variant="success" label="Update" onclick={updateAccountHandler}> </lightning-button> &nbsp;
+        <lightning-button icon-name="utility:delete" variant="destructive" label="Delete" onclick={deleteAccountHandler}> </lightning-button> &nbsp;
+        <lightning-button icon-name="utility:undelete" variant="brand" label="Undelete" onclick={undeleteAccountHandler}> </lightning-button> &nbsp;  <br />
+
+
+        <lightning-input type="text" data-formfield="accountName" placeholder="Enter Account Name" label="Enter Account Name" name="accountName" required="true" value={accountObject.Name}></lightning-input> <BR />
+        <lightning-input type="text" data-formfield="accountType" placeholder="Enter Type" label="Enter Type" name="accountName" value={accountObject.Type}></lightning-input><BR />
+        <lightning-input type="text" data-formfield="accountRating" placeholder="Enter Rating" label="Enter rating" name="accountName"  value={accountObject.Rating}></lightning-input><BR />
+        <lightning-input type="text" data-formfield="accountSLA" placeholder="Enter SLA" label="Enter SLA" name="accountName"  value={accountObject.SLA__c}></lightning-input><BR /> <BR />
+
+        
+
+        Account Details <br />
+        Account Name : {accountObject.Name} <br/>
+        Account Type : {accountObject.Type} <br />
+        Account Rating : {accountObject.Rating} <br />
+        Account SLA : {accountObject.SLA__c} <br />
+        <br/>
+        <table aria-describedby="conatact-list" class="slds-table  slds-table_bordered ">
+
+            <!--Header of the table-->
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="slds-size_1-of-6 " scope="col"> Account Name </th>
+                    <th class="slds-size_1-of-6 " scope="col"> Type </th>
+                    <th class="slds-size_1-of-6 " scope="col"> Rating </th>
+                    <th class="slds-size_1-of-6 " scope="col"> SLA </th>
+      
+               </tr>
+            </thead>
+
+            <!--Body of the table-->
+            <tbody>
+               
+                    <tr >
+                        <td>    {accountObject.Name}    </td>
+                        <td>    {accountObject.Type}    </td>
+                        <td>    {accountObject.Rating}    </td>
+                        <td>    {accountObject.SLA__c}    </td>
+                    </tr>
+                    
+                
+            </tbody>
+        </table>
+
+
+        <template if:true={showSpinnerFlag}>
+
+            <div class="exampleHolder">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+
+        </template>
+        
+    </lightning-card>
+
+</template>

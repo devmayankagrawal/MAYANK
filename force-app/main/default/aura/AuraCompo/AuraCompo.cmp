@@ -1,0 +1,30 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <aura:attribute name="myName" type="string" default="Agrawal Industries" />
+    <aura:attribute name="age" type="Integer" default="18"/>
+    <aura:attribute name="amount" type="decimal" default="95000.00"/>
+    <aura:attribute name="accountId" type="Id" default="0015j00000epsX2AAI"/>
+    <aura:attribute name="showFlag" type="Boolean" default="true"/> 
+    
+    <aura:attribute name="objAcc" type="Account" default="{'sobjectType' : 'Account'}"/>
+    <aura:attribute name="objApp" type="Applicant__c" default="{'sobjectType' : 'Applicant__c'}"/>
+    
+    <aura:attribute name="accList" type="List"/>
+    <aura:attribute name="nameList" type="List" default="['Chunni','Munni','Kabira']"/>
+    
+    <aura:attribute name="accSet" type="Set"/>
+    <aura:attribute name="nameSet" type="Set" default="['123','3256','5987']"/>
+    
+    <aura:attribute name="accMap" type="Map"/>
+    <aura:attribute name="myAccMap" type="Map" default="{Bunty:100,Bubli:200}"/>
+                    
+    
+    Compnay Name = {!v.myName}<br/>
+    Age = {!v.age}<br/>
+    Amount = {!v.amount}<br/>
+    Account Id = {!v.accountId}<br/>
+    Show Flag = {!v.showFlag}<br/>
+    Map = {!v.myAccMap}<br/>
+    
+    Current Account Record Id = {!v.recordId}
+</aura:component>

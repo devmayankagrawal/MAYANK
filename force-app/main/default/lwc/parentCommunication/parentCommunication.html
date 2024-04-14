@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Parent Communication">
+
+        I am from Parent Component, Parent salary is : {salary}<br/>
+
+        <lightning-input type="text" data-formfield="accountName" placeholder="Enter Account Name" name="accountname"></lightning-input>
+
+        <lightning-button variant="brand" icon-name="utility:send" label="Send Account Name" onclick={sendAccountName}></lightning-button>
+
+        <c-child-communication received-salary-from-parent={salary}  received-employee-name={empoyeeName} car-from-parent={Car} obj-account-received={objAccount}></c-child-communication>
+
+
+
+
+
+
+    </lightning-card>
+</template>

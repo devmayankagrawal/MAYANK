@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Parent Communication"></lightning-card>
+
+    <lightning-input type="text" data-formfield="applicantId" placeholder="Enter Applicant Id" onblur={applicantRecordHandler}></lightning-input>
+
+<!--Calling Address Communication start-->
+
+    <c-address-communication received-adress-list={adressList}></c-address-communication>
+
+<!--Calling Address Communication End-->
+
+
+</template>

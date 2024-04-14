@@ -1,0 +1,22 @@
+<aura:component controller="CaseProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="caseObject" type="Case" default="{'sObjectType' : 'Case'}"/>
+    <aura:attribute name="caseList" type="List"/>
+    <aura:attribute name="showPopupFlag" type="Boolean" default="false"/>
+    
+    <!--Event Handler-->
+    <aura:handler name="caseEventRegister" event="c:CaseEvent" action="{!c.receiveDataController}"/>
+    
+    <lightning:card title="Case Component">
+        
+        <lightning:input type="text" label="Enter Case Number" value="{!v.caseObject.CaseNumber}" required="true"/><br/>
+        <lightning:button variant="brand" iconName="utility:search" label="Show Details" onclick="{!c.showDetailsController}"/>
+        
+        <aura:if isTrue="{!v.showPopupFlag}">
+            <c:CasePopupTableCompo receivedCaseObject="{!v.caseObject}" receivedCaseList="{!v.caseList}"/>
+        </aura:if>
+        
+    </lightning:card>
+    
+    
+</aura:component>

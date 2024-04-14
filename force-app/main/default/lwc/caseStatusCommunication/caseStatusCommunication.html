@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Case Status Component">
+
+        <lightning-combobox
+        name="caseStatus"
+        label="Select Case Status"
+        value={caseStatus}
+        placeholder="Select Case Status"
+        options={caseStatuses}
+        onchange={handleCaseStatusChange} ></lightning-combobox> <br />
+
+
+    <!--Case Table Communication Start-->
+        <c-case-table-communication received-case-list={caseList}></c-case-table-communication>
+    <!--Case Table Communication End-->
+
+    <template if:true={showSpinnerFlag}>
+        <div class="exampleHolder">
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+
+    </lightning-card>
+</template>

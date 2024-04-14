@@ -1,0 +1,5 @@
+<aura:event type="Component" description="Event template" >
+    
+    <aura:attribute name="caseEventShowPopupFlag" type="boolean"/>
+    
+</aura:event>

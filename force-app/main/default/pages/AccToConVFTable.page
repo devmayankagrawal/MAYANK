@@ -1,0 +1,20 @@
+<apex:page standardController="Account" extensions="AccToConVFTable_CX">
+     <apex:pageBlock Title="Account Information">
+         <apex:pageBlockSection title="Account Contact Table">
+                 <apex:pageBlockTable value="{!accList}" var="objAcc">
+                     <apex:column value="{!objAcc.Name}"/>
+                                 
+                                <apex:column HeaderValue="First Name">     
+                                     <apex:repeat value="{!objAcc.Contacts}" var="objCon">
+                                         {!objCon.FirstName} <br/>
+                                     </apex:repeat>
+                                 </apex:column>
+                                          <apex:column HeaderValue="Last Name">     
+                                     <apex:repeat value="{!objAcc.Contacts}" var="objCon">
+                                          {!objCon.LastName} <br/>
+                                     </apex:repeat>
+                                 </apex:column>
+                 </apex:pageBlockTable>
+         </apex:pageBlockSection>
+     </apex:pageBlock>
+</apex:page>

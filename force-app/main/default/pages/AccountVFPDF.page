@@ -1,0 +1,8 @@
+<apex:page standardController="Account" extensions="AccountVFPDF_CX" renderAs="PDF">
+
+ Account Name = {!objAccount.Name} <Br />
+ Type = {!objAccount.type} <Br />
+ sla ={!objAccount.sla__c} <Br />
+ rating= {!objAccount.rating}
+ 
+</apex:page>

@@ -1,0 +1,13 @@
+<template>
+    <lightning-card>
+        <lightning-input data-formfield="applicantID" type="text" placeholder="Enter Applicant Id"></lightning-input> <br/>
+        <lightning-button variant="brand" label="showAddress" onclick={showaddressHandler}></lightning-button>
+
+        <template if:true={showAddressFlag}>
+
+        
+        <c-address-modal-compo onmyeventaddress={childAddressHandler}></c-address-modal-compo>
+
+    </template>
+    </lightning-card>
+</template>

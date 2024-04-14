@@ -1,0 +1,10 @@
+<apex:page standardController="Opportunity" extensions="OpportunityVFPDF_CX" renderAs="PDF">
+
+Opoortunity Name ={!objOpp.Name} <br />
+Type ={!objOpp.Type} <br />
+Lead Source={!objOpp.LeadSource} <br />
+Close Date={!objOpp.CloseDate} <br />
+Amount={!objOpp.Amount} <br />
+Stage Name={!objOpp.StageName}
+  
+</apex:page>

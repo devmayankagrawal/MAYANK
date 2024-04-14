@@ -1,0 +1,21 @@
+<template>
+    <lightning-card>
+
+        
+        
+        <lightning-datatable
+        key-field="Id"
+        data={caseStatusList}
+        columns={columns}    
+        draft-values={draftValues} 
+        onrowselection={selectedRecordsHandler}                     
+        onsave={saveHandler}   > 
+        </lightning-datatable>
+
+
+
+
+
+
+    </lightning-card>
+</template>

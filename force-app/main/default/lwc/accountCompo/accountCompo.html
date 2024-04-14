@@ -1,0 +1,19 @@
+<template>
+    <lightning-card>
+        <lightning-input data-formfield="accountName" type="text" label="Enter Account Name" name="accName"></lightning-input><br/>
+        <lightning-input data-formfield="accountType" type="text" label="Enter Account Type" name="accType"></lightning-input><br/>
+        <lightning-input data-formfield="accountSLA" type="text" label="Enter Account SLA" name="accSla"></lightning-input><br/>
+        
+        <lightning-combobox
+        name="rating"
+        label="Enter Rating"
+        
+        placeholder="Select Rating"
+        options={options}
+        onchange={handleRating} ></lightning-combobox>
+
+
+                <lightning-button variant="brand" label="Save" title="Save" onclick={saveButtonHandler} ></lightning-button> 
+    </lightning-card>
+    
+</template>

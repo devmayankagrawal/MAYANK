@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <aura:attribute name="receivedfromModi" type="string" default="waiting for Modi message"/>
+    
+    <aura:handler event="c.SitaramanEvent" action="{!c.receiveDataController}"/>
+    
+    <lightning:card title="Thakre Compo">
+    
+        Received Data from Modi Component = <ui:outputText value="{!v.receivedfromModi}"/>
+    
+    </lightning:card>
+    
+</aura:component>

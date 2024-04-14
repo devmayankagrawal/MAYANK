@@ -1,0 +1,47 @@
+<template>
+    <div class="slds-box slds-theme" style="background-color:gold;">
+    <div class="b-container">
+        
+                
+   
+        Contact Form
+   
+        <lightning-input type="text" placeholder="Enter First Name" label="First Name" name="contactFirstName" onchange={handleInputFirstName}></lightning-input> <BR />
+        <lightning-input type="text" placeholder="Enter Last Name" label="Last Name" name="contactLastName" required="true" onchange={handleInputLastName}></lightning-input><BR />
+
+        <!--Signature Capturing using LWC-->
+        
+            <div class="c-container"> 
+                <div style="text-align: left; "> 
+                    <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+                        Sign Here
+                    </h2>            
+                       <p class="slds-m-bottom_small"> 
+                            <canvas name="canvasItem" style="border:2px solid rgb(136, 135, 135);background: transparent;"></canvas>
+                        </p>
+                    
+                    <p class="slds-m-bottom_small"> 
+                    <!--   <lightning-button variant="brand" label="Save" title="Save" onclick={handleSaveClick} class="slds-m-left_x-small"></lightning-button>-->
+                        
+                        <lightning-button variant="brand" label="Clear" title="Clear" onclick={handleClearClick} class="slds-m-left_x-small"></lightning-button>
+                    </p>
+                </div>       
+            </div>
+<!--File Upload-->
+            <div class="slds-m-around_medium">
+                <lightning-input type="file" accept=".xlsx, .xls, .csv, .png, .doc, .docx, .pdf, .jpg" label="Attachment" onchange={openfileUpload}></lightning-input>
+            </div>
+            <template if:true={fileData}>
+                <p>{fileData.filename} <lightning-icon icon-name="utility:close" alternative-text="Remove" size="x-small" onclick={removeFile}></lightning-icon></p>
+                <p>File Size: {fileSizeInMB} MB</p> <!-- Display the file size in MB -->
+                
+            </template>
+
+            <lightning-button icon-name="utility:record_create" variant="neutral" label="Save" onclick={createContactHandler}> </lightning-button><br/>
+
+        Result : {result}
+        
+    </div>
+
+</div>
+</template>

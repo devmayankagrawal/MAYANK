@@ -1,0 +1,59 @@
+<aura:component controller="AccountProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="accountObject" type="Account" default="{'sObjectType' : 'Account'}"/>
+    <aura:attribute name="showTypeFlag" type="Boolean" default="true"/>
+    <aura:attribute name="showSaveButton" type="Boolean" default="true"/>
+    <aura:attribute name="showSearchNowButton" type="Boolean" default="false"/>
+    <aura:attribute name="showUpdateNowButton" type="Boolean" default="false"/>
+    <aura:attribute name="disableEditDelete" type="Boolean" default="true"/>
+    <aura:attribute name="showSpinnerFlag" type="Boolean" default="false"/>
+    
+    <lightning:card>
+        
+        <lightning:button iconName="utility:record_create" variant="brand" label="Create" onclick="{!c.createAccountController}" /> &nbsp;
+        <lightning:button iconName="utility:search" variant="brand" label="Search" onclick="{!c.searchAccountController}" /> &nbsp;
+        <lightning:button iconName="utility:record_update" variant="success" label="Edit" onclick="{!c.updateAccountController}" disabled="{!v.disableEditDelete}"/> &nbsp;
+        <lightning:button iconName="utility:record_delete" variant="destructive" label="Delete" onclick="{!c.deleteAccountController}" disabled="{!v.disableEditDelete}"/> <br/><br/>
+        
+        <lightning:input name="accountName" label="Enter Account Name" value="{!v.accountObject.Name}"/> <br/>
+        
+        <aura:if isTrue="{!v.showTypeFlag}">
+        <lightning:select value="{!v.accountObject.Type}" label="Select Type" >
+            <option value="">Select Type</option>
+            <option value="Prospect">Prospect</option>
+            <option value="Customer - Direct">Customer - Direct</option>
+            <option value="Customer - Channel">Customer - Channel</option>
+            <option value="Channel Partner">Channel Partner</option>
+            <option value="Installation Partner">Installation Partner</option>
+            <option value="Technology Partner">Technology Partner</option>
+            <option value="Other">Other</option>
+            </lightning:select> <br/><br/>
+            
+        </aura:if>
+            <aura:if isTrue="{!v.showSaveButton}">
+            <lightning:button iconName="utility:save" variant="brand" label="Save" onclick="{!c.saveAccountController}" /> 
+        </aura:if>
+        
+        <aura:if isTrue="{!v.showSearchNowButton}">
+            <lightning:button iconName="utility:search" variant="brand" label="Search Now.." onclick="{!c.searchNowAccountController}" /> <br/><br/>
+        	
+            Account Type : <ui:outputText value="{!v.accountObject.Type}"/> <br/>
+            Account Rating : <ui:outputText value="{!v.accountObject.Rating}"/> <br/>
+            Account SLA : <ui:outputText value="{!v.accountObject.SLA__c}"/> 
+            
+        </aura:if>
+        
+        <aura:if isTrue="{!v.showUpdateNowButton}">
+            <lightning:button iconName="utility:record_update" variant="brand" label="Update Now.." onclick="{!c.updateNowAccountController}" /> 
+        </aura:if>
+        
+        <aura:if isTrue="{!v.showSpinnerFlag}">
+            <div class="exampleHolder">
+                <lightning:spinner alternativeText="Loading" size="medium" />
+            </div> 
+        </aura:if>
+        
+        
+    </lightning:card>
+    
+</aura:component>

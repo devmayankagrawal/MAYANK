@@ -1,0 +1,16 @@
+<apex:page standardController="Contact" extensions="ContactTablePDF_CX" renderAs="PDF">
+    <apex:pageBlock title="Contact Information">
+    <apex:pageBlockSection title="Contact Table">
+    <apex:pageBlockTable value="{!conList}"  var="objCon">
+    <apex:column value="{!objCon.Account.Name}"/>
+    <apex:column value="{!objCon.Firstname}"/>
+    <apex:column value="{!objCon.LastName}"/>
+    <apex:column value="{!objCon.Department}"/>
+    <apex:column value="{!objCon.Level__c}"/>
+    <apex:column value="{!objCon.ID}"/>
+    
+    </apex:pageBlockTable>
+    </apex:pageBlockSection>
+    </apex:pageBlock>
+     
+</apex:page>

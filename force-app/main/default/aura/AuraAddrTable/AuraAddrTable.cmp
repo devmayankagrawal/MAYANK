@@ -1,0 +1,31 @@
+<aura:component controller="ApplicantProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="receivedAddressList" type="list"/>
+    <aura:attribute name="addressTablecolumns" type="list"/>
+    <aura:attribute name="selectedAddressRecordList" type="list"/>
+    <aura:attribute name="selectedRecordCount" type="Integer" default="0" />
+    <aura:attribute name="totalRecords" type="Integer" default="0" />
+    <aura:attribute name="receivedAppObject" type="Applicant__c" default="{'sObjectType' : 'Applicant__c'}" />
+
+    
+    <!--Event Handler Start-->
+    <aura:handler event="c:AppAddrEvent" action="{!c.receiveDataController}"/>
+    <!--Event Handler End-->
+    
+    <lightning:card title="Address table">
+        
+        <lightning:button variant="destructive" iconName="utility:record_delete" label="Delete selected Records" onclick="{!c.deleteSelectedAddressController}"/><br/><br/>
+        
+        Total Records =  <ui:outputText value="{!v.totalRecords}" />  &nbsp; Selected Records = <ui:outputText value="{!v.selectedRecordCount}" /> <br /><br />
+        
+        <lightning:datatable
+                             keyField="id"
+                             data="{!v.receivedAddressList }"
+                             columns="{!v.addressTablecolumns }"
+                             hideCheckboxColumn="false"
+                             onrowselection ="{!c.selectedAddressRows}"  />
+        
+        
+    </lightning:card>
+    
+</aura:component>

@@ -1,0 +1,79 @@
+<template>
+    <lightning-card>
+        <lightning-button variant="success" icon-name="utility:record_create" label="Create" onclick={accountRecordCreateHandler}></lightning-button> &nbsp;
+        <lightning-button variant="brand" icon-name="utility:search" label="Search" onclick={accountRecordSearchHandler}></lightning-button> &nbsp;
+        <lightning-button variant="brand-outline" icon-name="utility:record_update" label="Update" onclick={accountRecordUpdateHandler}></lightning-button> &nbsp;
+        <lightning-button variant="destructive" icon-name="utility:record_delete" label="Delete" onclick={accountRecordDeleteHandler}></lightning-button> &nbsp;
+        <lightning-button variant="success" icon-name="utility:undelete" label="Undelete" onclick={accountRecordUndeleteHandler}></lightning-button> <br/> <br/>
+        
+        <lightning-input data-formfield="accountName" type="text" label="Enter Account Name" placeholder="Enter account Name" name="accountName" value={objAccount.Name} required="true"></lightning-input>
+        
+        <lightning-combobox
+            name="Type"
+            label="Select Type"
+            value={objAccount.Type}
+            placeholder="Select Account Type"
+            options={optionsType}
+            onchange={handleChangeType} ></lightning-combobox>
+
+            <lightning-combobox
+            name="Rating"
+            label="Select Rating"
+            value={objAccount.Rating}
+            placeholder="Select Account Rating"
+            options={optionsRating}
+            onchange={handleChangeRating} ></lightning-combobox>
+
+            <lightning-combobox
+            name="SLA"
+            label="Select SLA"
+            value={objAccount.SLA__c}
+            placeholder="Select Account SLA"
+            options={optionsSLA}
+            onchange={handleChangeSLA} ></lightning-combobox>
+
+            Account Details <br />
+        Account Name : {objAccount.Name} <br/>
+        Account Type : {objAccount.Type} <br />
+        Account Rating : {objAccount.Rating} <br />
+        Account SLA : {objAccount.SLA__c} <br /> <br/>
+
+        
+<table aria-describedby="conatact-list" class="slds-table  slds-table_bordered ">
+
+    <!--Header of the table-->
+    <thead>
+        <tr class="slds-line-height_reset">
+            <th class="slds-size_1-of-6 " scope="col"> Account Name </th>
+            <th class="slds-size_1-of-6 " scope="col"> Type </th>
+            <th class="slds-size_1-of-6 " scope="col"> SLA </th>
+            <th class="slds-size_1-of-6 " scope="col"> Rating </th>
+   
+       </tr>
+    </thead>
+
+    <!--Body of the table-->
+    <tbody>
+       
+            <tr >
+                <td> {objAccount.Name} </td>
+                <td> {objAccount.Type} </td>
+                <td> {objAccount.SLA__c} </td>
+                <td> {objAccount.Rating} </td>
+
+            </tr>
+            
+        
+    </tbody>
+</table>
+
+        <template if:true={showSpinnerFlag}>
+            <div class="exampleHolder">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+
+
+    </lightning-card>
+</template>

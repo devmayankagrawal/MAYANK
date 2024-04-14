@@ -1,0 +1,42 @@
+<aura:component controller="AccountProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="opportunityList" type="List" />
+    <aura:attribute name="showTableFlag" type="Boolean" default="false"/>
+    <aura:attribute name="showSpinnerFlag" type="Boolean" default="false"/>
+    <aura:attribute name="oppTableColList" type="List" />
+    <aura:attribute name="selectedRecordCount" type="Integer" default="0" />
+    <aura:attribute name="totalRecords" type="Integer" default="0" />
+    <aura:attribute name="selectedOpportunityRecordList" type="List" />
+    <aura:attribute name="oppAccRecord" type="list"/>
+    
+    <!--Card Start -->
+    <lightning:card title="Show All Opportunities">
+        
+        <lightning:button variant="brand" label="Show Current Opportunities" iconName="utility:search" onclick="{!c.showOpportunitiesController}" /> &nbsp;
+        <lightning:button variant="destructive" label="Delete Selected Opportunity" iconName="utility:delete" onclick="{!c.deleteSelectedOpportunityController}" /> <br /><br />
+        
+        <aura:if isTrue="{!v.showTableFlag}">
+            
+            Total Records =  <ui:outputText value="{!v.totalRecords}" />  &nbsp; Selected Records = <ui:outputText value="{!v.selectedRecordCount}" /> <br /><br />
+            
+            <lightning:datatable
+                                 keyField="id"
+                                 data="{! v.opportunityList }"
+                                 columns="{!v.oppTableColList }"
+                                 hideCheckboxColumn="false"  
+                                 onrowselection ="{!c.selectedAddressRows}"   />
+            
+            
+        </aura:if>
+        
+        <aura:if isTrue="{!v.showSpinnerFlag}">
+            <div class="exampleHolder">
+                <lightning:spinner alternativeText="Loading" size="medium" />
+            </div>
+        </aura:if>
+        
+        
+        
+    </lightning:card>
+    <!--Card End -->
+</aura:component>

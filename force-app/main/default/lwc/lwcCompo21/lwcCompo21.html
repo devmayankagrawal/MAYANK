@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Hello Agrawal Indusrties">
+
+       <lightning-input type="text"  label="Enter First Name" name="firstName"></lightning-input><br/>
+       <lightning-input type="text"  label="Enter Last Name" name="lastName"></lightning-input><br/>
+
+       <lightning-combobox
+            name="gender"
+            label="Gender"
+            value={value}
+            placeholder="Select Gender"
+            options={optionsGender}
+            onchange={handleChangeGender} ></lightning-combobox>
+
+       <lightning-input type="date"  label="Select DOB" name="dob"></lightning-input><br/>
+
+       <lightning-button variant="brand" label="Submit" onclick={showName}></lightning-button><br/>
+
+       First Name = {firstName}<br/>
+       Last Name = {lastName}<br/>
+       Gender = {gender}<br/>
+       DOB = {dob}
+
+    </lightning-card>
+</template>

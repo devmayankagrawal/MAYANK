@@ -1,0 +1,35 @@
+<apex:page standardController="Account" extensions="AccountToContactVFTablePDF_CX" renderAs="PDF">
+        <apex:pageBlock title="Account Information">
+                <apex:pageBlockSection title="Account Contact Table">
+                
+                       <apex:pageblockTable value="{!accList}" var="objAcc">
+                                    <apex:column value="{!objAcc.Name}"/>
+                                    <apex:column value="{!objAcc.Type}"/>
+                                    <apex:column value="{!objAcc.Rating}"/> 
+                                            
+                                            <apex:column headerValue="First Name">
+                                                    <apex:repeat value="{!objAcc.Contacts}" var="objCon">
+                                                              {!objCon.FirstName}<br />
+                                                    </apex:repeat>
+                                             </apex:column>
+                                                     <apex:column headerValue="Last Name">
+                                                    <apex:repeat value="{!objAcc.Contacts}" var="objCon">
+                                                              {!objCon.LastName}<br />
+                                                    </apex:repeat>
+                                             </apex:column>
+                                                                 <apex:column headerValue="Department">
+                                                    <apex:repeat value="{!objAcc.Contacts}" var="objCon">
+                                                             {!objCon.Department}<br />
+                                                    </apex:repeat>
+                                             </apex:column>
+                                                         <apex:column headerValue="Level">
+                                                    <apex:repeat value="{!objAcc.Contacts}" var="objCon">
+                                                              {!objCon.Level__c}<br />
+                                                    </apex:repeat>
+                                             </apex:column>
+                        </apex:pageBlockTable>
+                
+                </apex:pageBlockSection>
+        </apex:pageBlock>
+  
+</apex:page>

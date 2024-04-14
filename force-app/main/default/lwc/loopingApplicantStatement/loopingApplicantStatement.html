@@ -1,0 +1,58 @@
+<template>
+    <lightning-card title="Looping Applicant Statement">
+
+        Total Records : {totalRecords}
+
+        <lightning-combobox
+        name="Gender"
+        label="Gender"
+        value={value}
+        placeholder="Select Gender"
+        options={optionsGender}
+        onchange={handleChangeGender} ></lightning-combobox>
+
+        <template if:true={showTableFlag}>       
+            <!--Table Start-->
+                <table aria-describedby="conatact-list" class="slds-table  slds-table_bordered ">
+    
+                    <!--Header of the table-->
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-size_1-of-6 " scope="col">
+                                <div class="slds-truncate " title="Applicant First Name">Applicant First Name</div>
+                            </th>
+                            <th class="slds-size_1-of-6 " scope="col">
+                                <div class="slds-truncate " title="Applicant Last Name">Applicant Last Name</div>
+                            </th>
+                            <th class="slds-size_1-of-6 " scope="col">
+                                <div class="slds-truncate " title="Gender">Gender</div>
+                            </th>
+                            
+                       </tr>
+                    </thead>
+        
+                    <!--Body of the table-->
+                    <tbody>
+                       
+                           <template for:each={appList} for:item="app">
+                                <tr key={app.id}>
+                                      <td>{app.First_Name__c}</td>  
+                                      <td>{app.Last_Name__c}</td> 
+                                      <td>{app.Gender__c}</td> 
+                                      
+                                </tr>
+        
+                           </template>
+                            
+                        
+                    </tbody>
+                </table>
+        <!--Table End-->
+    </template>
+    
+        <template if:false={showTableFlag}>
+            No Records Found...
+        </template>
+
+    </lightning-card>
+</template>

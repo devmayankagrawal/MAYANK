@@ -1,0 +1,21 @@
+<apex:page standardController="Applicant__c" extensions="ApplicantDisclaimer_CX" renderAs="pdf">
+    <apex:pageBlock title="Applicant Information">
+        <apex:pageBlockSection title="Applicant Bank Information">
+                <apex:outputPanel >   
+        
+                    Applicant Id = {!objApp.Name} <br />
+                    First Name = {!objApp.First_Name__c} <br />
+                    Last Name = {!objApp.Last_Name__c} <br />
+                    Gender = {!objApp.Gender__c} <br />
+                    Aadhar Number = {!objApp.Aadhar_Number__c} <br />  <br />
+                    
+                 </apex:outputPanel> <br />
+                    
+                    <apex:outputPanel rendered="{!showNoteFlag}">
+                            Note: Your Aadhar card is not avialable in your bank account. Kindly visit to your nearest branch.
+                    </apex:outputPanel>
+                    
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+  
+</apex:page>

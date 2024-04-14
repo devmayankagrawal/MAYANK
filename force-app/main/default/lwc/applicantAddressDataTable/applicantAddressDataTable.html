@@ -1,0 +1,24 @@
+<template>
+    <lightning-card>
+        <lightning-input data-formfield="applicantID" type="text" placeholder="Enter Applicant ID" onblur={searchAddressHandler}></lightning-input> <br/>
+       
+        <lightning-button variant="destructive" icon-name="utility:delete" label="Delete Selected Addresses" onclick={deleteSelectedAddressHandler}></lightning-button> <br/>
+
+        Selected Recrods = {selectedRecordsCount}
+
+        <!--Data Table Start-->
+                
+                <lightning-datatable
+                key-field="Id"
+                data={addressList}
+                columns={columns}    
+                draft-values={draftValues} 
+                onrowselection={selectedRecordsHandler}                     
+                onsave={saveHandler}   > 
+
+        </lightning-datatable>
+        <!--Data Table End-->
+
+
+    </lightning-card>
+</template>

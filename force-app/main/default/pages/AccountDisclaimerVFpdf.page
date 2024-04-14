@@ -1,0 +1,21 @@
+<apex:page standardController="Account" extensions="AccountDisclaimerVFpdf_CX" renderAs="pdf">
+        <apex:pageBlock title="Account Information">
+                <apex:pageBlockSection title="Account records">
+                    <apex:outputPanel >
+                            Account Name = "{!objAcc.Name}" <br />
+                                    Type = "{!objAcc.Type}" <br />
+                                    Rating = "{!objAcc.Rating}" <br /> <br />
+                        
+                    </apex:outputPanel> <br />
+                                    <apex:outputPanel rendered="{!showNoteFlag}">
+                                               Note: We use cookies to improve user experience, for web analytics and marketing purposes. 
+                                               You can block saving cookies to your hard drive at any time, by changing the settings of your web browser. 
+                                               By continuing to use this website without disabling cookies in your web browser you agree to saving cookies to your hard drive. 
+                                               Learn more in our Privacy Policy.
+
+
+                                            </apex:outputPanel>
+                </apex:pageBlockSection>
+        </apex:pageBlock>
+ 
+</apex:page>

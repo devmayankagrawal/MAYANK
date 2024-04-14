@@ -1,0 +1,19 @@
+<aura:component controller="ApplicantProvider" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="applicantObject" type="Applicant__c" default="{'sobjectType' : 'Applicant__c'}" />
+    
+    <lightning:card title="New Applicant record">
+        
+        <lightning:input name="appFirstName" label="Enter First Name"  value="{!v.applicantObject.First_Name__c}" required="true" />
+        <lightning:input name="appLastName" label="Enter Last Name"  value="{!v.applicantObject.Last_Name__c}" required="true" />
+        <lightning:input name="appGender" label="Enter Gender"  value="{!v.applicantObject.Gender__c}"  />
+        <lightning:input type="date" name="appDOB" label="Enter DOB"  value="{!v.applicantObject.DOB__c}"  />
+        
+        <lightning:button variant="brand" label="Save" title="Save" onclick="{! c.createNewApplicantController }" />
+        
+        
+        
+        
+        
+    </lightning:card>
+</aura:component>

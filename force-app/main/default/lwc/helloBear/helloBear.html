@@ -1,0 +1,26 @@
+<template>
+    <lightning-card>
+        <lightning-input type="text" label="Enter First Name" name="firstName"></lightning-input> <br/>
+        <lightning-input type="text" label="Enter Last Name" name="lastName"></lightning-input> <br/>
+
+        <lightning-combobox
+            name="gender"
+            label="Gender"
+            value={value}
+            placeholder="Select Gender"
+            options={options}
+            onchange={handleChange} ></lightning-combobox>
+
+        <lightning-input type="date" label="Enter DOB" name="dob"></lightning-input> <br/>
+
+
+        <lightning-button variant="brand" label="Click Me" title="Click Me" onclick={showName} class="slds-m-left_x-small"></lightning-button><br/>
+        
+        First Name = {firstName}<br/>
+        Last Name = {lastName}<br/>
+       Gender = {gender}<br/>
+        DoB = {dob}<br/>
+
+    </lightning-card>
+
+</template>
